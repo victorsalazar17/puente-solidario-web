@@ -1,49 +1,37 @@
 # Puente Solidario
 
-Directorio estático de organizaciones sociales con fuentes institucionales públicas de Medellín y Marinilla. Construido con HTML5, CSS3 y JavaScript vanilla; no usa backend, bases de datos ni compilación.
+**Puente Solidario** es un directorio informativo que facilita el encuentro entre personas interesadas en ayudar y organizaciones sociales con presencia pública en Medellín, Marinilla y otros municipios de Antioquia incluidos en esta versión.
 
-## Abrir localmente
+Su propósito es acercar causas y canales institucionales de contacto en un solo lugar. La plataforma permite explorar organizaciones, conocer su labor y consultar las fuentes públicas asociadas a cada ficha.
 
-Abre `index.html` en un navegador moderno. Google Fonts, Bootstrap Icons y las fotografías externas requieren conexión a Internet. La búsqueda, filtros, tarjetas y detalles funcionan localmente.
+## Qué ofrece el proyecto
 
-## Contenido y límites
+- Un directorio de 17 organizaciones sociales incluidas en esta versión.
+- Búsqueda por nombre, municipio, causa y términos relacionados con la actividad de las organizaciones.
+- Filtros que se pueden combinar para explorar por causa y ubicación.
+- Fichas con una descripción, información de contacto disponible y enlaces a fuentes públicas.
+- Secciones informativas sobre formas de ayudar, transparencia y preguntas frecuentes.
 
-Las fichas y la fecha de revisión están en `js/data.js`. Las fotografías son ilustrativas y no representan sedes ni beneficiarios reales de las organizaciones. Los enlaces de fuente de cada ficha permiten contrastar su información. La etiqueta “Fuente institucional” significa que se cotejaron datos básicos en un canal oficial; no es una certificación de existencia jurídica o actividad presente. Las ubicaciones son sedes publicadas en fuentes institucionales. No se publican cuentas bancarias.
+Las organizaciones incluidas son FAN, Fundación Integrar, Fundación Las Golondrinas, Fundación Banco Arquidiocesano de Alimentos de Medellín, Fundación Carla Cristina, Fundación Gente Unida, Centro de Bienestar del Anciano San José de Marinilla, FUSOAN, Fundación Néstor Esteban Sanín Arbeláez (FNESA), Fundación Compasión, Otro Rumbo Fundación, Corporación Vida, Justicia y Paz del Oriente Antioqueño, Hablemos por Ellos, FUNITSER, Fundación Hogar del Desvalido, Fundación Betania Integral Colombia y Fundación Ximena Rico Llano.
 
-Se incluyen diecisiete organizaciones con fuente pública accesible para esta versión: FAN, Fundación Integrar, Fundación Las Golondrinas, Banco Arquidiocesano de Alimentos de Medellín, Fundación Carla Cristina, Fundación Gente Unida, Centro de Bienestar del Anciano San José de Marinilla, FUSOAN, FNESA, Fundación Compasión, Otro Rumbo Fundación, Corporación Vida Justicia y Paz del Oriente Antioqueño, Fundación Hablemos por Ellos, FUNITSER, Fundación Hogar del Desvalido, Fundación Betania Integral Colombia y Fundación Ximena Rico Llano. Otras entidades de la lista inicial no se incluyeron porque en esta revisión no se contrastó suficiente información institucional para publicar una ficha responsable.
+## Causas representadas
 
-## Mantener el directorio
+El directorio reúne organizaciones vinculadas con infancia y juventud, educación, alimentación, atención a personas mayores, inclusión, salud y bienestar, protección animal y desarrollo comunitario, de acuerdo con la información pública citada en sus fichas.
 
-1. Edita `js/data.js` y agrega un objeto a `window.ORGANIZATIONS` siguiendo los campos de las fichas existentes.
-2. Incluye al menos una fuente pública y una fecha ISO `YYYY-MM-DD` de revisión.
-3. Usa teléfono/WhatsApp solo si aparece en un canal institucional; WhatsApp debe contener código país y dígitos únicamente (por ejemplo `573001234567`).
-4. No inventes misión, sede, donaciones o redes. Deja el campo vacío si no está publicado.
-5. Para cada causa, agrega el nombre en `tags` y comprueba que tenga respaldo en la fuente citada.
-6. Las imágenes remotas deben ser ilustrativas salvo que exista permiso/contexto para presentarlas como institucionales. Mantén el crédito o URL fuente si agregas imágenes institucionales.
-7. Revisa enlaces y datos de nuevo antes de publicar cambios.
+## Criterios de información y transparencia
 
-## Estructura
+La información de las fichas se organiza a partir de fuentes públicas enlazadas en el propio directorio. La etiqueta de fuente institucional indica que se consultó un canal oficial para contrastar datos básicos; no constituye una certificación jurídica ni garantiza que la actividad, los datos o los canales de contacto sigan vigentes. Las fechas de revisión se muestran junto a la información correspondiente.
 
-- `index.html`: contenido semántico y secciones.
-- `css/styles.css`: identidad visual y diseño responsive.
-- `js/data.js`: fichas y causas.
-- `js/main.js`: renderizado seguro del DOM, búsqueda, filtros, detalles accesibles y fecha dinámica.
-- `assets/icons/favicon.svg`: marca vectorial del proyecto.
+Las fotografías identificadas como ilustrativas representan una causa o temática y no muestran necesariamente una sede, una actividad ni a personas vinculadas con la organización. No se publican cuentas bancarias que no hayan podido confirmarse en canales institucionales.
 
-## Publicar
+Puente Solidario es una plataforma informativa independiente. No representa oficialmente a las organizaciones, no recibe donaciones, no procesa pagos y no garantiza automáticamente las actividades de las entidades listadas. Antes de realizar un aporte, cada persona debe confirmar directamente con la organización sus canales oficiales y el destino de la contribución.
 
-### GitHub Pages
+## Cómo está construido
 
-Sube estos archivos a un repositorio GitHub. En **Settings → Pages**, selecciona la rama y la carpeta raíz (`/`). El archivo `index.html` queda como página de entrada. Usa la URL que GitHub Pages entrega.
+El proyecto utiliza HTML5 semántico, CSS3 y JavaScript sin frameworks ni servicios de servidor. Las fichas se encuentran en `js/data.js`; la búsqueda, los filtros y la presentación de detalles se gestionan desde `js/main.js`. La interfaz y sus estilos están en `index.html` y `css/styles.css`.
 
-### Netlify
+El sitio es estático y no incluye formularios de envío, pasarelas de pago ni procesamiento de información personal. Las fuentes tipográficas, los iconos y algunas imágenes se cargan desde servicios externos y requieren conexión a Internet.
 
-Arrastra la carpeta raíz al área de despliegue manual de Netlify o conecta el repositorio. No configures comando de build; el directorio de publicación es la raíz del proyecto.
+## Contacto y actualización
 
-## Privacidad y contacto
-
-Este sitio no tiene formularios, analítica, cookies ni procesamiento de datos. Los enlaces `mailto:` usan `contacto@ejemplo.com` como marcador de posición; configúralo con un buzón administrado antes de publicar. El aviso de privacidad en el pie explica el carácter estático del sitio. Puente Solidario es informativo e independiente, no representa a las entidades ni recauda donaciones.
-
-
-
-
+Para reportar información desactualizada, solicitar una corrección o proponer una organización para el directorio, escribe a [puentesolidariooo@gmail.com](mailto:puentesolidariooo@gmail.com). Las solicitudes permiten revisar la información; su inclusión depende de que existan fuentes públicas suficientes para presentar la ficha con claridad.

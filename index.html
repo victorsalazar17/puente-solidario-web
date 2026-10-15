@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="es">
+
+<!--
+  ============================================================
+  PUENTE SOLIDARIO — index.html
+  ============================================================
+  Estructura del documento
+    1. <head>      Metadatos, SEO, Open Graph, fuentes, estilos y scripts
+    2. Header      Navegación principal (logotipo, menú, CTA)
+    3. Main
+       3.1 Hero            #inicio
+       3.2 Directorio      #directorio      (buscador, filtros, tarjetas)
+       3.3 Causas          #causas
+       3.4 Cómo ayudar     #como-ayudar
+       3.5 Acerca de       #acerca
+       3.6 Transparencia   #verificacion
+       3.7 Preguntas       #preguntas
+    4. Footer      Enlaces, contacto y avisos
+    5. Modal       Detalle de cada fundación (se rellena desde js/main.js)
+
+  Elementos que JavaScript controla (no cambiar sus id):
+    #result-count, #search-input, #clear-search, #location-filter,
+    #category-filters, #reset-filters, #directory-grid, #empty-state,
+    #empty-reset, #cause-tiles, #current-year, #detail-backdrop,
+    #detail-modal, #modal-close, #modal-content, .menu-toggle, #site-nav
+  ============================================================
+-->
+
+<head>
+  <!-- Codificación y adaptación a pantallas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14532d">
+
+  <!-- SEO y redes sociales (Open Graph) -->
+  <title>Puente Solidario — Conecta con una causa</title>
+  <meta name="description" content="Descubre organizaciones sociales verificadas del Oriente Antioqueño y el Valle de Aburrá. Conoce su labor y encuentra sus canales institucionales.">
+  <meta property="og:title" content="Puente Solidario — Conecta con una causa">
+  <meta property="og:description" content="Un directorio informativo para acercar tu solidaridad a organizaciones del Oriente Antioqueño y el Valle de Aburrá.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- Fuentes (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos (Bootstrap Icons) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Scripts: data.js (datos) debe cargarse antes que main.js (lógica) -->
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Accesibilidad: enlace para saltar la navegación -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ==================== 2. ENCABEZADO / NAVEGACIÓN ==================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+
+      <!-- Logotipo -->
+      <a class="brand" href="#inicio" aria-label="Puente Solidario, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M7 34h34M10 34c2-12 8-19 14-19s12 7 14 19M12 27h24M16 20h16"/>
+            <circle cx="11" cy="12" r="3"/>
+            <circle cx="37" cy="12" r="3"/>
+            <path d="M14 13l6 5m14-5-6 5"/>
+          </svg>
+        </span>
+        <span class="brand-name">
+          puente
+          <span>solidario</span>
+        </span>
+      </a>
+
+      <!-- Botón del menú móvil -->
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Menú principal -->
+      <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#directorio">Explorar</a>
+        <a href="#causas">Causas</a>
+        <a href="#como-ayudar">Cómo ayudar</a>
+        <a href="#acerca">Acerca de</a>
+        <a class="nav-cta" href="#directorio">
+          Encuentra una causa
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ==================== 3. CONTENIDO PRINCIPAL ==================== -->
+  <main id="main">
+
+    <!-- ---------- 3.1 HERO: presentación del proyecto ---------- -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <!-- Texto y llamadas a la acción -->
+        <div class="hero-copy">
+          <span class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            ORIENTE ANTIOQUEÑO · VALLE DE ABURRÁ
+          </span>
+
+          <h1>
+            Pequeñas acciones.
+            <br>
+            <em>Grandes cambios.</em>
+          </h1>
+
+          <p class="hero-lead">
+            Conectamos tu solidaridad con organizaciones que trabajan cada día por un futuro mejor en nuestra región.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#directorio">
+              Explorar fundaciones
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="button button-quiet" href="#como-ayudar">
+              <span class="play-icon">
+                <i class="bi bi-heart-fill" aria-hidden="true"></i>
+              </span>
+              Descubre cómo ayudar
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span class="note-icon">
+              <i class="bi bi-info-circle" aria-hidden="true"></i>
+            </span>
+            <span>Un directorio independiente para encontrar canales institucionales y conocer causas cercanas.</span>
+          </div>
+        </div>
+
+        <!-- Imagen y elementos decorativos -->
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <img
+              src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=1100&q=85"
+              alt="Personas reunidas en una actividad comunitaria; imagen ilustrativa"
+              fetchpriority="high">
+            <span class="photo-caption">
+              <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+              Solidaridad que conecta
+            </span>
+          </div>
+
+          <div class="float-card">
+            <span class="float-icon">
+              <i class="bi bi-signpost-2-fill" aria-hidden="true"></i>
+            </span>
+            <span>
+              <strong>Encuentra tu manera</strong>
+              <small>de hacer parte</small>
+            </span>
+            <i class="bi bi-arrow-up-right float-arrow" aria-hidden="true"></i>
+          </div>
+
+          <div class="hero-spark" aria-hidden="true">✳</div>
+        </div>
+
+      </div>
+      <div class="hero-shape" aria-hidden="true"></div>
+    </section>
+
+    <!-- ---------- 3.2 DIRECTORIO: buscador, filtros y tarjetas ---------- -->
+    <section class="directory-section section-pad" id="directorio">
+      <div class="container">
+
+        <!-- Encabezado de la sección + contador de resultados -->
+        <div class="section-heading heading-row">
+          <div>
+            <span class="eyebrow">DIRECTORIO ABIERTO</span>
+            <h2>
+              Una causa puede
+              <em>empezar aquí.</em>
+            </h2>
+            <p>Explora organizaciones con información pública disponible. Revisa sus canales oficiales antes de apoyar.</p>
+          </div>
+
+          <div class="directory-count">
+            <strong id="result-count">0</strong>
+            <span>
+              organizaciones
+              <br>
+              en el directorio
+            </span>
+          </div>
+        </div>
+
+        <!-- Buscador de texto y filtro por territorio -->
+        <div class="search-panel" aria-label="Buscar organizaciones">
+          <label class="search-box">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <span class="visually-hidden">Buscar por nombre, municipio o causa</span>
+            <input id="search-input" type="search" placeholder="Busca una causa, fundación o municipio…" autocomplete="off">
+            <button id="clear-search" class="clear-search" type="button" aria-label="Limpiar búsqueda" hidden>
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </label>
+
+          <label class="select-wrap">
+            <span class="visually-hidden">Filtrar por municipio o zona</span>
+            <i class="bi bi-geo-alt" aria-hidden="true"></i>
+            <select id="location-filter">
+              <option value="">Todos los territorios</option>
+            </select>
+            <i class="bi bi-chevron-down select-chevron" aria-hidden="true"></i>
+          </label>
+        </div>
+
+        <!-- Filtros por causa (los botones los genera JavaScript) -->
+        <div class="filter-row">
+          <span class="filter-label">Explorar por causa</span>
+          <div id="category-filters" class="filter-chips" role="group" aria-label="Filtrar por causa"></div>
+          <button id="reset-filters" class="reset-button" type="button">
+            Limpiar filtros
+            <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Tarjetas de fundaciones (las genera JavaScript) -->
+        <div id="directory-grid" class="directory-grid" aria-live="polite" aria-busy="false"></div>
+
+        <!-- Mensaje cuando no hay resultados -->
+        <div id="empty-state" class="empty-state" hidden>
+          <span class="empty-icon">
+            <i class="bi bi-search-heart" aria-hidden="true"></i>
+          </span>
+          <h3>No encontramos coincidencias</h3>
+          <p>Prueba con otro término o limpia los filtros para ver todas las organizaciones.</p>
+          <button class="button button-primary" id="empty-reset" type="button">Ver todas</button>
+        </div>
+
+        <!-- Nota aclaratoria sobre el sello de verificación -->
+        <p class="directory-footnote">
+          <i class="bi bi-patch-check" aria-hidden="true"></i>
+          “Fuente institucional” indica que los datos básicos se contrastaron con canales oficiales publicados. No constituye una certificación legal ni una garantía de actividad.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ---------- 3.3 CAUSAS: accesos rápidos por categoría ---------- -->
+    <section class="causes-section section-pad" id="causas">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">DIFERENTES CAMINOS, UN MISMO DESEO</span>
+          <h2>
+            ¿Qué causa te
+            <em>mueve?</em>
+          </h2>
+          <p>Las necesidades de cada comunidad son distintas. Encuentra una organización que trabaje por aquello que te importa.</p>
+        </div>
+
+        <!-- Mosaicos de causas (los genera JavaScript) -->
+        <div id="cause-tiles" class="cause-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- ---------- 3.4 CÓMO AYUDAR: formas de apoyar ---------- -->
+    <section class="help-section section-pad" id="como-ayudar">
+      <div class="container">
+
+        <div class="section-heading centered">
+          <span class="eyebrow">TU APOYO CUENTA</span>
+          <h2>
+            Hay muchas formas
+            <em>de ayudar.</em>
+          </h2>
+          <p>No todas las contribuciones son iguales. Encuentra la que mejor se ajusta a ti.</p>
+        </div>
+
+        <!-- Una tarjeta por alternativa de ayuda -->
+        <div class="help-grid">
+
+          <article class="help-card">
+            <span class="help-icon warm">
+              <i class="bi bi-heart-arrow" aria-hidden="true"></i>
+            </span>
+            <h3>Donaciones económicas</h3>
+            <p>Consulta con la organización sus canales oficiales y las necesidades actuales antes de realizar un aporte.</p>
+          </article>
+
+          <article class="help-card">
+            <span class="help-icon green">
+              <i class="bi bi-box2-heart" aria-hidden="true"></i>
+            </span>
+            <h3>Donaciones en especie</h3>
+            <p>Alimentos, útiles o elementos de primera necesidad pueden ser útiles cuando la entidad confirma que los requiere.</p>
+          </article>
+
+          <article class="help-card">
+            <span class="help-icon blue">
+              <i class="bi bi-people" aria-hidden="true"></i>
+            </span>
+            <h3>Voluntariado</h3>
+            <p>Pregunta por oportunidades, perfiles requeridos y condiciones directamente a la organización.</p>
+          </article>
+
+          <article class="help-card">
+            <span class="help-icon lilac">
+              <i class="bi bi-megaphone" aria-hidden="true"></i>
+            </span>
+            <h3>Difunde una causa</h3>
+            <p>Comparte los enlaces institucionales para que más personas conozcan el trabajo de las organizaciones.</p>
+          </article>
+
+          <article class="help-card">
+            <span class="help-icon orange">
+              <i class="bi bi-lightbulb" aria-hidden="true"></i>
+            </span>
+            <h3>Apoyo profesional</h3>
+            <p>Ofrece conocimientos, tiempo o redes de tu empresa según las necesidades que la entidad publique.</p>
+          </article>
+
+        </div>
+
+        <!-- Recomendación de seguridad antes de donar -->
+        <div class="safety-note">
+          <span>
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+          </span>
+          <p>
+            <strong>Antes de donar, verifica los canales oficiales</strong>
+            de la organización y confirma el destino de tu aporte. Puente Solidario no recibe ni procesa donaciones.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ---------- 3.5 ACERCA DE: alcance de Puente Solidario ---------- -->
+    <section class="about-section section-pad" id="acerca">
+      <div class="container about-grid">
+
+        <!-- Imagen ilustrativa -->
+        <div class="about-art">
+          <div class="about-photo">
+            <img
+              src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=900&q=85"
+              loading="lazy"
+              alt="Voluntarios colaborando en una actividad; imagen ilustrativa">
+          </div>
+          <span class="about-stamp">
+            <i class="bi bi-link-45deg" aria-hidden="true"></i>
+            Personas
+            <br>
+            que conectan
+          </span>
+        </div>
+
+        <!-- Texto -->
+        <div class="about-copy">
+          <span class="eyebrow">SOBRE PUENTE SOLIDARIO</span>
+          <h2>
+            Acercar personas.
+            <br>
+            <em>Conectar propósitos.</em>
+          </h2>
+          <p>
+            Puente Solidario es un directorio informativo que facilita descubrir organizaciones sociales del Oriente Antioqueño y el Valle de Aburrá y encontrar sus canales institucionales.
+          </p>
+          <p>
+            Somos una plataforma independiente. No representamos oficialmente a las fundaciones, no recibimos donaciones y la inclusión en este directorio no garantiza por sí sola la vigencia de sus actividades o datos. Antes de actuar, confirma siempre con la entidad.
+          </p>
+          <a class="text-link" href="#verificacion">
+            Cómo verificamos la información
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ---------- 3.6 TRANSPARENCIA: criterios y reporte de errores ---------- -->
+    <section class="verify-section section-pad" id="verificacion">
+      <div class="container verify-grid">
+
+        <!-- Explicación general -->
+        <div>
+          <span class="eyebrow">TRANSPARENCIA</span>
+          <h2>
+            Información abierta,
+            <br>
+            <em>con fuentes a la vista.</em>
+          </h2>
+          <p>
+            Las fichas se elaboran a partir de información publicada por cada organización. “Fuente institucional” significa que el nombre, la causa y los datos mostrados se cotejaron con una web oficial o un canal institucional accesible. No es una auditoría ni certificación legal.
+          </p>
+        </div>
+
+        <!-- Pasos del proceso -->
+        <div class="verify-steps">
+
+          <div class="verify-step">
+            <span>01</span>
+            <div>
+              <h3>Consultamos fuentes públicas</h3>
+              <p>Priorizamos sitios web oficiales y enlazamos la fuente consultada en cada ficha.</p>
+            </div>
+          </div>
+
+          <div class="verify-step">
+            <span>02</span>
+            <div>
+              <h3>Mostramos cuándo se revisó</h3>
+              <p>La fecha de revisión acompaña a cada organización. Los datos pueden cambiar.</p>
+            </div>
+          </div>
+
+          <div class="verify-step">
+            <span>03</span>
+            <div>
+              <h3>¿Encontraste un error?</h3>
+              <p>Escríbenos para solicitar corrección, actualización o retiro de información.</p>
+              <a class="text-link" href="mailto:puentesolidariooo@gmail.com?subject=Actualizaci%C3%B3n%20del%20directorio%20Puente%20Solidario">
+                Reportar o solicitar inclusión
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- 3.7 PREGUNTAS FRECUENTES ---------- -->
+    <section class="faq-section section-pad" id="preguntas">
+      <div class="container faq-layout">
+
+        <div class="section-heading">
+          <span class="eyebrow">PREGUNTAS FRECUENTES</span>
+          <h2>
+            ¿Tienes alguna
+            <em>duda?</em>
+          </h2>
+          <p>Algunas respuestas para ayudarte a navegar el directorio con confianza.</p>
+        </div>
+
+        <!-- Acordeón nativo con <details> (no requiere JavaScript) -->
+        <div class="faq-list">
+
+          <details>
+            <summary>
+              ¿Cómo encuentro una fundación cerca de mí?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>Usa el filtro de territorio y el buscador del directorio. La ubicación que aparece corresponde a una sede publicada, no necesariamente al único lugar donde la organización trabaja.</p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Cómo puedo contactar a una organización?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>Abre “Conocer fundación” y utiliza los enlaces institucionales disponibles. Si no hay canal publicado, no mostramos un contacto supuesto.</p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Puente Solidario recibe donaciones?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>No. Este sitio solo informa y conecta. Cualquier aporte se gestiona directamente con la organización a través de sus canales oficiales.</p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Cómo verifico una cuenta bancaria antes de donar?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>Confirma titular, banco y propósito directamente por un canal oficial que tú hayas consultado. No transfieras a datos recibidos de terceros sin confirmarlos.</p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Qué hago si encuentro información desactualizada?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>Envíanos un correo con el nombre de la organización, el dato que debe cambiar y, si es posible, el enlace a la fuente actual.</p>
+          </details>
+
+          <details>
+            <summary>
+              ¿Cómo solicito que una fundación aparezca?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>Escríbenos con el nombre, municipio y enlace a sus canales institucionales. La inclusión depende de que exista información pública suficiente para construir una ficha fiable.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 4. PIE DE PÁGINA ==================== -->
+  <footer class="site-footer">
+
+    <!-- Columnas: marca y enlaces -->
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a class="brand brand-light" href="#inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <path d="M7 34h34M10 34c2-12 8-19 14-19s12 7 14 19M12 27h24M16 20h16"/>
+              <circle cx="11" cy="12" r="3"/>
+              <circle cx="37" cy="12" r="3"/>
+              <path d="M14 13l6 5m14-5-6 5"/>
+            </svg>
+          </span>
+          <span class="brand-name">
+            puente
+            <span>solidario</span>
+          </span>
+        </a>
+        <p>Un directorio para acercar la solidaridad a causas que transforman nuestra región.</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Explora</h3>
+        <a href="#directorio">Directorio</a>
+        <a href="#causas">Causas</a>
+        <a href="#como-ayudar">Cómo ayudar</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Información</h3>
+        <a href="#acerca">Sobre el proyecto</a>
+        <a href="#verificacion">Transparencia</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Contacto</h3>
+        <a href="mailto:puentesolidariooo@gmail.com?subject=Hola%20Puente%20Solidario">Escríbenos</a>
+        <a href="mailto:puentesolidariooo@gmail.com?subject=Actualizaci%C3%B3n%20del%20directorio%20Puente%20Solidario">Reportar información</a>
+      </div>
+
+    </div>
+
+    <!-- Franja inferior: año dinámico y avisos -->
+    <div class="container footer-bottom">
+      <span>
+        ©
+        <span id="current-year"></span>
+        Puente Solidario
+      </span>
+      <span>Plataforma informativa independiente · Sin backend, cookies ni formularios de registro.</span>
+      <a href="#verificacion">Aviso de privacidad</a>
+    </div>
+
+  </footer>
+
+  <!-- ==================== 5. MODAL DE DETALLE ==================== -->
+  <!-- Fondo oscuro detrás del modal -->
+  <div class="modal-backdrop" id="detail-backdrop" hidden></div>
+
+  <!-- Contenedor accesible; main.js inserta el contenido en #modal-content -->
+  <section
+    class="detail-modal"
+    id="detail-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="detail-title"
+    aria-describedby="detail-summary"
+    hidden>
+    <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar detalle">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div id="modal-content"></div>
+  </section>
+
+</body>
+</html>
